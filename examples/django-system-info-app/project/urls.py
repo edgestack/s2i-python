@@ -15,13 +15,10 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
-from django.urls import path
-from django_sysinfo.views import sysinfo, version, check, echo
+from django_sysinfo.views import sysinfo, version
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url('sys/info/$', sysinfo, name='sys-info'),
     url('sys/version/(?P<name>.*)/$', version, name='sys-version'),
-    path("sys/echo/<str:value>/", echo, name="sys-echo"),
-    path("sys/check/<str:id>/", check, name="sys-check"),
 ]
